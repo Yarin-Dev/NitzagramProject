@@ -2,8 +2,6 @@ import pygame
 from helpers import screen
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
 
-# try
-
 def main():
     # Set up the game display, clock and headline
     pygame.init()
