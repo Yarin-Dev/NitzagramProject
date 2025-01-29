@@ -7,10 +7,11 @@ def main():
     pygame.init()
 
     # Change the title of the window
-    pygame.display.set_caption('Nitzagram')
+    pygame.display.set_caption('Niggagram')
 
     clock = pygame.time.Clock()
 
+    # Set up background image
     # Set up background image
     background = pygame.image.load('Images/background.png')
     background = pygame.transform.scale(background,
