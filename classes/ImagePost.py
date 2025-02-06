@@ -11,6 +11,8 @@ class ImagePost(Post):
 
     def display(self):
         super().display()
+        
+        # Load and show on the screen
         image = load_and_scale(self.image, POST_WIDTH, POST_HEIGHT)
         screen.blit(image, (POST_X_POS, POST_Y_POS))
         
