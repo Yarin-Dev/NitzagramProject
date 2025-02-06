@@ -31,15 +31,18 @@ class Post:
 
         :return: None
         """
+        # Fonts & Colors
         color = (0, 0, 0)
-        font = pygame.font.SysFont("chalkduster.ttf",
-                                   20)
-        font1 = pygame.font.SysFont("chalkduster.ttf",
-                                   17)
+        font = pygame.font.SysFont("chalkduster.ttf", 20)
+        font1 = pygame.font.SysFont("chalkduster.ttf", 17)
+        
+        # Texts
         username = font.render(self.username, True, color)
         description = font.render(self.description, True, color)
         location = font1.render(self.location, True, color)
         likes = font.render(str(self.likes_counter), True, color)
+        
+        # Show elements on the screen
         screen.blit(username, (USER_NAME_X_POS, USER_NAME_Y_POS))
         screen.blit(description, (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS))
         screen.blit(location, (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS))
