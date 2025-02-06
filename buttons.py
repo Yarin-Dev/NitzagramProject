@@ -18,3 +18,7 @@ view_more_comments_button = Button(VIEW_MORE_COMMENTS_X_POS,
                                    VIEW_MORE_COMMENTS_Y_POS,
                                    VIEW_MORE_COMMENT_WIDTH,
                                    VIEW_MORE_COMMENT_HEIGHT)
+share_button = Button(SHARE_BUTTON_X_POST,
+                     SHARE_BUTTON_Y_POS,
+                     SHARE_BUTTON_WIDTH,
+                     SHARE_BUTTON_HEIGHT)
