@@ -49,7 +49,7 @@ def mouse_in_button(button, mouse_pos):
         return True
 
 
-def draw_comment_text_box():
+def draw_text_box():
     pygame.draw.rect(screen, GREY, pygame.Rect(
         VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS, 300, 20))
     pygame.draw.rect(screen, WHITE,
@@ -58,9 +58,21 @@ def draw_comment_text_box():
     pygame.display.flip()
 
 
+def draw_title(title: str):
+    # A ract to remove prevoius texts
+    pygame.draw.rect(screen, WHITE, 
+                     (VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS - 20, 100, 10)) 
+    
+    title_text = pygame.font.SysFont('chalkduster.ttf',
+                                               COMMENT_TEXT_SIZE).render(title, True, LIGHT_GRAY)
+    screen.blit(title_text, (VIEW_MORE_COMMENTS_X_POS,
+                                                    VIEW_MORE_COMMENTS_Y_POS - 20))
+    pygame.display.flip()
+
+
 # Get the comment that the user typed will using Nitzagram and translate it
 # to string
-def read_comment_from_user():
+def read_from_user(title):
     """
     Read the comment the user type.
     :return: string
@@ -69,12 +81,13 @@ def read_comment_from_user():
     pressed_enter = False
     new_comment = ""
     # Draw the rectangle where the user can see the comment he typed
-    draw_comment_text_box()
+    draw_text_box()
+    draw_title(title)
     while not pressed_enter:
         # get the string for comment
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                draw_comment_text_box()
+                draw_text_box()
                 if event.key == pygame.K_RETURN:
                     pressed_enter = True
                 # command to add len ! = 0
@@ -114,3 +127,44 @@ def center_text(num_of_rows, text_to_display, row_number):
     text_rect.y = (POST_Y_POS + horizontal_margin +
                    row_number * TEXT_POST_FONT_SIZE)
     return text_rect
+
+
+def load_and_scale(path: str, width: int, height: int):
+    """
+    Load and scale an image.
+    
+    :param path: str
+        Image path on the project folder
+    :param width: int
+        Image new width
+    :param height: int
+        Image new height
+    :return: Surface
+        The element
+    """
+    image = pygame.image.load(path)
+    return pygame.transform.scale(image,
+                                        (width, height))
+
+
+def put_like_sign():
+    """
+    Changes the like click sign (Red heart)
+    :return: None
+    """
+    img = load_and_scale('NitzagramProject-main/Images/red-heart.png', LIKE_BUTTON_WIDTH, LIKE_BUTTON_HEIGHT)
+    screen.blit(img, (LIKE_BUTTON_X_POS, LIKE_BUTTON_Y_POS))
+    
+
+def resolve_phone_number(phone_num: str) -> str:
+    """
+    Resolves a phone num to IL's starting nums
+    :param phone_num: int
+        Phone num to resolve
+    :return: int
+        Resolved phone num
+    """
+    if phone_num.startswith("0"):  
+        phone_num = "+972" + phone_num[1:]
+        
+    return phone_num
