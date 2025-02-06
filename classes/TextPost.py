@@ -14,11 +14,17 @@ class TextPost(Post):
 
     def display(self):
         super().display()
+        
+        # Post background
         square = pygame.Rect(POST_X_POS, POST_Y_POS, POST_WIDTH, POST_HEIGHT)
         pygame.draw.rect(screen, self.color, square)
+        
+        # Font & Text
         font = pygame.font.SysFont("chalkduster.ttf", 30)
         text = font.render(self.text, True, self.text_color)
         obj = center_text(1, text, 1)
+        
+        # Show on the screen
         screen.blit(text, (obj.x, obj.y))
         
     def share(self, phone_num):
