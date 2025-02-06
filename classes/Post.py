@@ -1,7 +1,7 @@
 import pygame
 from constants import *
 from helpers import screen
-
+from classes.Comment import *
 
 class Post:
     """
@@ -12,13 +12,17 @@ class Post:
         self.location = location
         self.description = description
         self.likes_counter = 0
+        self.share_counter = 0
         self.comments = []
 
     def add_like(self):
         self.likes_counter += 1
 
-    def add_comment(self, comment: str):
+    def add_comment(self, comment: Comment):
         self.comments.append(comment)
+    
+    def add_share(self):
+        self.share_counter += 1
 
     def display(self):
         """
@@ -49,7 +53,7 @@ class Post:
 
         :return: None
         """
-        position_index = self.comments_display_index
+        position_index = 0
         # If there are more than 4 comments, print "view more comments"
         if len(self.comments) > NUM_OF_COMMENTS_TO_DISPLAY:
             comment_font = pygame.font.SysFont('chalkduster.ttf',
@@ -58,12 +62,11 @@ class Post:
                                                             True, LIGHT_GRAY)
             screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS,
                                                     VIEW_MORE_COMMENTS_Y_POS))
-
         # Display 4 comments starting from comments_display_index
-        for i in range(0, len(self.comments)):
+        for i in range(1, len(self.comments) + 1):
             if position_index >= len(self.comments):
                 position_index = 0
             self.comments[position_index].display(i)
             position_index += 1
-            if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
+            if i >= NUM_OF_COMMENTS_TO_DISPLAY:
                 break
