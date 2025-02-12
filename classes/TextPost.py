@@ -28,6 +28,7 @@ class TextPost(Post):
         screen.blit(text, (obj.x, obj.y))
         
     def share(self, phone_num):
+        self.add_share()
         content = "**{}'s post from Nitzagram!**\n{} likes • {} shares • {} comments\n\n".format(self.username, self.likes_counter, self.share_counter, len(self.comments))
         content += f"*{self.text}*\n{self.description}"
         pywhatkit.sendwhatmsg_instantly(phone_num, content)
