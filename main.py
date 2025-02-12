@@ -18,9 +18,9 @@ def main():
     clock = pygame.time.Clock()
 
     # Set up background image
-    background = load_and_scale('NitzagramProject-main/Images/background.png', WINDOW_WIDTH, WINDOW_HEIGHT)
+    background = load_and_scale('Images/background.png', WINDOW_WIDTH, WINDOW_HEIGHT)
 
-    post1 = ImagePost("YuvalEl", "Israel", "my first post description", "NitzagramProject-main/images/ronaldo.jpg")
+    post1 = ImagePost("YuvalEl", "Israel", "my first post description", "images/ronaldo.jpg")
     post2 = TextPost("YuvalEl", "Israel", "and here is the second one", "Post Text", (255, 255, 255), (0, 0, 0))
     posts = [post1, post2]
     
