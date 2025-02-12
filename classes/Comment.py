@@ -27,6 +27,6 @@ class Comment:
         text_y = DESCRIPTION_TEXT_Y_POS + 30 * position_index
         
         # Show on the screen with user's profile.
-        user_profile = load_and_scale('NitzagramProject-main/Images/user-profile.png', 30, 27)
+        user_profile = load_and_scale('Images/user-profile.png', 30, 27)
         screen.blit(text, (text_x, text_y))
         screen.blit(user_profile, (text_x - 30, text_y - 7))
