@@ -152,7 +152,7 @@ def put_like_sign():
     Changes the like click sign (Red heart)
     :return: None
     """
-    img = load_and_scale('NitzagramProject-main/Images/red-heart.png', LIKE_BUTTON_WIDTH, LIKE_BUTTON_HEIGHT)
+    img = load_and_scale('Images/red-heart.png', LIKE_BUTTON_WIDTH, LIKE_BUTTON_HEIGHT)
     screen.blit(img, (LIKE_BUTTON_X_POS, LIKE_BUTTON_Y_POS))
     
 
